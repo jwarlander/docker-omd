@@ -18,7 +18,10 @@ RUN apt-get install -y libpython2.7 omd
 
 # Set up a default site
 RUN omd create default
+# We don't want TMPFS as it requires higher privileges
 RUN omd config default set TMPFS off
+# Accept connections on any IP address, since we get a random one
+RUN omd config default set APACHE_TCP_ADDR 0.0.0.0
 
 # Add watchdog script
 ADD watchdog.sh /opt/omd/watchdog.sh
