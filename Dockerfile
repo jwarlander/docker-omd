@@ -24,5 +24,5 @@ RUN omd config default set TMPFS off
 ADD watchdog.sh /opt/omd/watchdog.sh
 
 # Set up runtime options
-EXPOSE 80
+EXPOSE 5000
 ENTRYPOINT ["/opt/omd/watchdog.sh"]
